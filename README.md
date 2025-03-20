@@ -12,13 +12,13 @@ steps will be commented out as they are completed
 
           << interface, interface implementation, abstract class, inheritance, inheritance and implementation >>
 
-create a public enum type for the names of the Chess Pieces and save it in a separate file
-create a public enum type for the X Coordinate a, b, c, d, ..., h (e.g., LocationX) and save it in a separate file
-create an interface for the chess figure. Interface “IntFigure” should only include the following method signature:
-Boolean moveTo(X: LocationX, int Y).
-create an abstract class Figure that partially implements IntFigure (provides the fields and constructors to initialize its values, but does not implement method moveTo.
-Create classes “Pawn”, “RooK”, and “Knight”  that extend abstract class Figure. Also override method "String toString()" so you will be able to print your chess pieces classes.
-Create interface “IntBishop” which is not related to IntFigure and defines method moveToBishop
+<!-- create a public enum type for the names of the Chess Pieces and save it in a separate file -->
+<!-- create a public enum type for the X Coordinate a, b, c, d, ..., h (e.g., LocationX) and save it in a separate file -->
+<!-- create an interface for the chess figure. Interface “IntFigure” should only include the following method signature: -->
+<!-- Boolean moveTo(X: LocationX, int Y). -->
+<!-- create an abstract class Figure that partially implements IntFigure (provides the fields and constructors to initialize its values, but does not implement method moveTo. -->
+<!-- Create classes “Pawn”, “RooK”, and “Knight”  that extend abstract class Figure. Also override method "String toString()" so you will be able to print your chess pieces classes. -->
+<!-- Create interface “IntBishop” which is not related to IntFigure and defines method moveToBishop -->
 create a class Bishop that implements your interface
 Create class Queen which extends Rook and implements IntBishop. First, provide an  implementation of moveToBishop method. When overriding moveTo method in Queen, make use of Rook's moveTo method and moveToBishop implementation
 When overriding moveTo method in Queen, make use of Rook's moveTo implementation and
