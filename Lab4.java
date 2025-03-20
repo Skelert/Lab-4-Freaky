@@ -191,8 +191,7 @@ public class Lab4 {
                 return newBishop;
         }
         
-        Pawn error = new Pawn();
-        return error;
+        return null;
     }
 
     public static void verifyEachPiece(String attackCoordinates) {
