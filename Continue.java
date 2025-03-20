@@ -1,4 +1,0 @@
-enum Continue {
-    YES,
-    NO
-}
