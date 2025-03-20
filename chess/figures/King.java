@@ -1,3 +1,5 @@
+package chess.figures;
+
 public class King extends Queen{
 
     public King() {

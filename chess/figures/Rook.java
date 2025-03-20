@@ -1,22 +1,29 @@
+package chess.figures;
+
 import java.util.Arrays;
 import java.util.Vector;
 
-public class Queen extends Rook implements IntBishop {
+public class Rook extends Figure {
 
-    public Queen() {
-        this.pieceName = "queen";
+    public Rook() {
+        this.pieceName = "rook";
     }
 
-    public Queen(String color, String col, String row) {
-        super(color, col, row, "queen");
+    public Rook(String color, String col, String row) {
+        super(color, col, row, "rook");
     }
 
-    public Queen(String color, String col, String row, String pieceName) {
+    public Rook(String color, String col, String row, String pieceName) {
         super(color, col, row, pieceName);
     }
 
     @Override
-    public boolean moveToBishop(String column, String row) {
+    public String toString() {
+        return(color + " " + pieceName + " (" + column + ", " + row + ")");
+    }
+
+    @Override
+    public boolean moveTo(String column, String row) {
         String letters = "abcdefgh";
         String numbers = "87654321";
         int attackRows = numbers.indexOf(row);
@@ -34,7 +41,7 @@ public class Queen extends Rook implements IntBishop {
         return false;
     }
 
-    public int[][] makeBishopCoordinates(boolean force1) {
+    public int[][] makeRookCoordinates(boolean force1) {
         Vector<int[]> vector = new Vector<>();
 
         String letters = "abcdefgh";
@@ -44,10 +51,10 @@ public class Queen extends Rook implements IntBishop {
         int col = letters.indexOf(this.column);
 
         int[][] directions = {
-                { 1, -1 }, // Top Left
-                { 1, 1 }, // Top Right
-                { -1, -1 }, // Bottom Left
-                { -1, 1 } // Bottom Right
+                { 0, -1 },  // Left
+                { 0, 1 },   // Right
+                { -1, 0 },  // Down
+                { 1, 0 }    // Up
         };
 
         for (int[] direction : directions) {
@@ -63,9 +70,7 @@ public class Queen extends Rook implements IntBishop {
 
                 if (force1)
                     break;
-
             }
-
         }
 
         return vectorToArray(vector);
@@ -73,25 +78,7 @@ public class Queen extends Rook implements IntBishop {
 
     @Override
     public int[][] generateCoordinates() {
-        int[][] arr = makeBishopCoordinates(false);
-        int[][] arrTwo = makeRookCoordinates(false);
-
-        int length1 = arr.length;
-        int length2 = arrTwo.length;
-
-        int[][] result = new int[length1 + length2][2];
-
-        System.arraycopy(arr, 0, result, 0, length1);
-        System.arraycopy(arrTwo, 0, result, length1, length2);
-
-        return result;
-
+        return makeRookCoordinates(false);
     }
 
-    @Override
-    public boolean moveTo(String column, String row) {
-        boolean reachesDiagonally = moveToBishop(column, row);
-        boolean reachesVerticallyOrHorizontally = super.moveTo(column, row);
-        return (reachesDiagonally || reachesVerticallyOrHorizontally);
-    }
 }

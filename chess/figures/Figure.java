@@ -1,3 +1,5 @@
+package chess.figures;
+
 import java.util.Vector;
 
 abstract class Figure implements IntFigure {

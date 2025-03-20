@@ -1,23 +1,82 @@
+package chess.figures;
+
 import java.util.Arrays;
 import java.util.Vector;
 
-public class Bishop extends Figure implements IntBishop {
+public class Bishop implements IntBishop {
+
+    public String pieceName;
+    public String color;
+    public String column;
+    public String row;
 
     public Bishop() {
         this.pieceName = "bishop";
+        this.color = null;
+        this.column = null;
+        this.row = null;
     }
 
     public Bishop(String color, String col, String row) {
-        super(color, col, row, "bishop");
+        this.pieceName = "bishop";
+        this.color = color.toLowerCase();
+        this.column = col.toLowerCase();
+        this.row = row;
     }
 
     public Bishop(String color, String col, String row, String pieceName) {
-        super(color, col, row, pieceName);
+        this.pieceName = pieceName.toLowerCase();
+        this.color = color.toLowerCase();
+        this.column = col.toLowerCase();
+        this.row = row;
+    }
+
+    public void setColumn(String col) {
+        this.column = col.toLowerCase();
+    }
+
+    public void setRow(String row) {
+        this.row = row;
+    }
+
+    public String getColumn() {
+        return this.column;
+    }
+
+    public String getRow() {
+        return this.row;
+    }
+
+    public String getColor() {
+        return this.color;
+    }
+
+    public String getFigureName() {
+        return this.pieceName;
+    }
+
+    public int[][] vectorToArray(Vector<int[]> vector) {
+        int[][] newArray = new int[vector.size()][2];
+        for (int i = 0; i < vector.size(); i += 1) {
+            int[] curr = { vector.get(i)[0], vector.get(i)[1] };
+            newArray[i] = curr;
+        }
+        return newArray;
+    }
+
+    public boolean inBounds(int[] coordinate) {
+        int indexOne = coordinate[0];
+        int indexTwo = coordinate[1];
+        if (indexOne < 0 || indexOne > 7)
+            return false;
+        if (indexTwo < 0 || indexTwo > 7)
+            return false;
+        return true;
     }
 
     @Override
     public String toString() {
-        return (color + " " + pieceName + " (" + column + ", " + row + ")");
+        return (this.getColor() + " " + pieceName + " (" + this.getColumn() + ", " + this.getRow() + ")");
     }
 
     public boolean moveToBishop(String column, String row) {
@@ -38,7 +97,6 @@ public class Bishop extends Figure implements IntBishop {
         return false;
     }
 
-    @Override
     public boolean moveTo(String column, String row) {
         return moveToBishop(column, row);
     }
@@ -83,5 +141,4 @@ public class Bishop extends Figure implements IntBishop {
     public int[][] generateCoordinates() {
         return makeBishopCoordinates(false);
     }
-
 }

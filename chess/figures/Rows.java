@@ -1,4 +1,6 @@
-enum Rows {
+package chess.figures;
+
+public enum Rows {
     R1,
     R2,
     R3,
