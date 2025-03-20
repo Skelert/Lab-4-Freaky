@@ -7,18 +7,31 @@ public class Lab4 {
         System.out.flush();
     }
 
-    public static String getPiece(String message, String tryAgain) {
+   public static String getPiece(String message, String tryAgain) {
         Scanner userInput = new Scanner(System.in);
-        System.out.println(message);
-        String piece = userInput.nextLine().toUpperCase();
-        for (PieceName myVar : PieceName.values()) {
-            String curr = myVar.toString();
-            if (curr.equals(piece)) {
+        boolean validInput = false;
+        String name = "";
+
+        while (!validInput) {
+            try {
+                System.out.println(message);
+                name = userInput.nextLine().toUpperCase();
+
+                PieceName piece = PieceName.valueOf(name);
                 clearTerminal();
-                return piece;
+                validInput = true;
+
             }
+
+            catch (Exception e) {
+                System.out.println(tryAgain);
+
+            }
+
         }
-        return getPiece(tryAgain, tryAgain);
+
+        return name;
+
     }
 
     public static String getColor(String message, String tryAgain) {
@@ -54,17 +67,28 @@ public class Lab4 {
 
     public static String getCol(String message, String tryAgain) {
         Scanner userInput = new Scanner(System.in);
-        System.out.println(message);
-        String col = userInput.nextLine().toUpperCase();
-        for (Columns myVar : Columns.values()) {
-            String curr = myVar.toString();
-            if (curr.equals(col)) {
+        boolean validInput = false;
+        String col = "";
+
+        while (!validInput) {
+            try {
+                System.out.println(message);
+                col = userInput.nextLine().toUpperCase();
+
+                Columns colEnum = Columns.valueOf(col);
                 clearTerminal();
-                return col;
+                validInput = true;
+
             }
+
+            catch (Exception e) {
+                System.out.println(tryAgain);
+
+            }
+
         }
 
-        return getCol(tryAgain, tryAgain);
+        return col;
 
     }
 
