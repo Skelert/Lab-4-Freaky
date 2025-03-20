@@ -1,0 +1,4 @@
+enum Continue {
+    YES,
+    NO
+}
