@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Vector;
 
-public class Bishop implements IntBishop {
+public class Bishop extends Figure implements IntBishop {
 
     public String pieceName;
     public String color;
