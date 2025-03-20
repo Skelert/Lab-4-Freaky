@@ -170,37 +170,37 @@ public class Lab4 {
         String coordinateCol = coordinates.split("")[0];
         String coordinateRow = coordinates.split("")[1];
 
-        Figure newCreatedPiece = new Figure();
-
         switch (piece) {
             case "KING":
-                newCreatedPiece = new King(color, coordinateCol, coordinateRow);
-                break;
+                King newKing = new King(color, coordinateCol, coordinateRow);
+                return newKing;
             case "QUEEN":
-                newCreatedPiece = new Queen(color, coordinateCol, coordinateRow);
-                break;
+                Queen newQueen = new Queen(color, coordinateCol, coordinateRow);
+                return newQueen;
             case "ROOK":
-                newCreatedPiece = new Rook(color, coordinateCol, coordinateRow);
-                break;
+                Rook newRook = new Rook(color, coordinateCol, coordinateRow);
+                return newRook;
             case "KNIGHT":
-                newCreatedPiece = new Knight(color, coordinateCol, coordinateRow);
-                break;
+                Knight newKnight = new Knight(color, coordinateCol, coordinateRow);
+                return newKnight;
             case "PAWN":
-                newCreatedPiece = new Pawn(color, coordinateCol, coordinateRow);
-                break;
+                Pawn newPawn = new Pawn(color, coordinateCol, coordinateRow);
+                return newPawn;
             case "BISHOP":
-                newCreatedPiece = new Bishop(color, coordinateCol, coordinateRow);
-                break;
+                Bishop newBishop = new Bishop(color, coordinateCol, coordinateRow);
+                return newBishop;
         }
-        return newCreatedPiece;
+        
+        Pawn error = new Pawn();
+        return error;
     }
 
     public static void verifyEachPiece(String attackCoordinates) {
         String col = attackCoordinates.split("")[0];
         String row = attackCoordinates.split("")[1];
         for (int i = 0; i < inUseArray.length; i += 1) {
-            Piece currPiece = inUseArray[i];
-            boolean valid = currPiece.verifyTarget(col, row);
+            Figure currPiece = inUseArray[i];
+            boolean valid = currPiece.moveTo(col, row);
             if (attackCoordinates.equals(currPiece.getColumn() + "" + currPiece.getRow())) {
                 System.out.println(currPiece.pieceName + " is already at " + attackCoordinates);
             } else if (valid) {
