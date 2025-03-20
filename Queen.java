@@ -85,7 +85,13 @@ public class Queen extends Rook implements IntBishop {
         System.arraycopy(arrTwo, 0, result, length1, length2);
 
         return result;
-        
+
     }
 
+    @Override
+    public boolean moveTo(String column, String row) {
+        boolean reachesDiagonally = moveToBishop(column, row);
+        boolean reachesVerticallyOrHorizontally = super.moveTo(column, row);
+        return (reachesDiagonally || reachesVerticallyOrHorizontally);
+    }
 }

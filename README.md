@@ -19,9 +19,9 @@ steps will be commented out as they are completed
 <!-- create an abstract class Figure that partially implements IntFigure (provides the fields and constructors to initialize its values, but does not implement method moveTo. -->
 <!-- Create classes “Pawn”, “RooK”, and “Knight”  that extend abstract class Figure. Also override method "String toString()" so you will be able to print your chess pieces classes. -->
 <!-- Create interface “IntBishop” which is not related to IntFigure and defines method moveToBishop -->
-create a class Bishop that implements your interface
-Create class Queen which extends Rook and implements IntBishop. First, provide an  implementation of moveToBishop method. When overriding moveTo method in Queen, make use of Rook's moveTo method and moveToBishop implementation
-When overriding moveTo method in Queen, make use of Rook's moveTo implementation and
+<!-- create a class Bishop that implements your interface -->
+<!-- Create class Queen which extends Rook and implements IntBishop. First, provide an  implementation of moveToBishop method. When overriding moveTo method in Queen, make use of Rook's moveTo method and moveToBishop implementation -->
+<!-- When overriding moveTo method in Queen, make use of Rook's moveTo implementation and -->
 Create class king which extends Queen
 Create interface IntChessBoard with signature Boolean verifyCoordinate( X: LocationX, int Y) that verifies that the coordinates (X: LocationX, int Y) are within the chess board.
 Create class ChessBoard that implements IntChessBoard
