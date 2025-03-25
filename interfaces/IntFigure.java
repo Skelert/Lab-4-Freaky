@@ -1,6 +1,6 @@
 package interfaces;
 
-interface IntFigure {
+public interface IntFigure {
     boolean moveTo(String column, String row);
 
 }

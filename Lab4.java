@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import chess.figures.*;;
+
 public class Lab4 {
 
     public static void clearTerminal() {
