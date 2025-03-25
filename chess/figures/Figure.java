@@ -1,8 +1,9 @@
 package chess.figures;
+import interfaces.IntFigure;
 
 import java.util.Vector;
 
-abstract class Figure implements IntFigure {
+public abstract class Figure implements IntFigure {
 
     public String pieceName;
     public String color;

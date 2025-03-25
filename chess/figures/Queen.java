@@ -3,6 +3,8 @@ package chess.figures;
 import java.util.Arrays;
 import java.util.Vector;
 
+import interfaces.IntBishop;
+
 public class Queen extends Rook implements IntBishop {
 
     public Queen() {

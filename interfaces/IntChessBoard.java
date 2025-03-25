@@ -1,6 +1,6 @@
 package interfaces;
 
-interface IntChessBoard {
+public interface IntChessBoard {
     boolean verifyCoordinate(String col, String row);
     
 }
